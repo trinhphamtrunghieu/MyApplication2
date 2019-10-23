@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/home"
+            android:title="Home page"
+            />
+        <item
+            android:id="@+id/currentLoc"
+            android:icon="@drawable/location"
+            android:title="Current Location" />
+        <item
+            android:id="@+id/search"
+            android:icon="@drawable/search"
+            android:title="Search Sensor" />
+        <item
+            android:id="@+id/ranking"
+            android:icon="@drawable/rank"
+            android:title="Ranking" />
+        <item
+            android:id="@+id/login"
+            android:icon="@drawable/login"
+            android:title="Add sensor" />
+    </group>
+
+</menu>
