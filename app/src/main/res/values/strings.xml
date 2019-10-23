@@ -12,5 +12,6 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_main3">Main3Activity</string>
     <string name="title_activity_add_sensor">AddSensor</string>
+    <string name="title_activity_hompage">hompage</string>
 
 </resources>

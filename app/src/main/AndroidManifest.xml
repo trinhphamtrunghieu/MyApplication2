@@ -14,11 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".hompage"
+            android:label="@string/title_activity_hompage"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".AddSensor"
             android:label="@string/title_activity_add_sensor"
-            android:theme="@style/AppTheme.NoActionBar"
-            >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main2"
