@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         AppEventsLogger.activateApp(this);
         mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

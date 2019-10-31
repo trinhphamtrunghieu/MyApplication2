@@ -8,24 +8,21 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.facebook.login.LoginManager;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,7 +31,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -42,10 +38,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.ConnectionCallbacks
-        , GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
+        , GoogleApiClient.OnConnectionFailedListener, LocationListener{
     private GoogleMap map;
     private boolean checkPermission = false;
     protected Bundle savedInstanceState;
@@ -56,6 +54,8 @@ public class Main2Activity extends AppCompatActivity
     private LocationManager locationManager;
     private double lantitude;
     private double longitude;
+    private Fragment mVisible;
+    private SupportMapFragment mapFragment;
 
     @SuppressLint("MissingPermission")
     @Override
@@ -85,20 +85,20 @@ public class Main2Activity extends AppCompatActivity
         Log.d("Calling : ", "On Start");
         setContentView(R.layout.activity_main2);
         final Intent intent = new Intent(this, Main2Activity.class);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -106,7 +106,7 @@ public class Main2Activity extends AppCompatActivity
         }
     }
 
-        @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main2, menu);
@@ -130,7 +130,7 @@ public class Main2Activity extends AppCompatActivity
 
     @SuppressLint("MissingPermission")
     private void currentLocFunction() {
-        Log.d("Current Location : ",String.valueOf(lantitude)+" : "+String.valueOf(longitude));
+       /* Log.d("Current Location : ", String.valueOf(lantitude) + " : " + String.valueOf(longitude));
         Log.d("Calling : ", "On Start");
         final MapView mapView = findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
@@ -150,7 +150,8 @@ public class Main2Activity extends AppCompatActivity
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lantitude, longitude), 15));
 
             }
-        });
+        });*/
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -171,15 +172,15 @@ public class Main2Activity extends AppCompatActivity
             }
         });
     }
-
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
+        Fragment fragment = null;
         if (id == R.id.currentLoc) {
             // Handle the camera action
-            currentLocFunction();
+            Log.d("onNavigationItemSelect","Current loc");
+            fragment = new currentLocFragment();
         } else if (id == R.id.search) {
 
         } else if (id == R.id.ranking) {
@@ -188,8 +189,13 @@ public class Main2Activity extends AppCompatActivity
             startActivity(new Intent(Main2Activity.this, MainActivity.class));
         } else if (id == R.id.home) {
             homepageFunction();
-        }
 
+        }
+        if(fragment!=null){
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame,fragment);
+            ft.commit();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -223,20 +229,20 @@ public class Main2Activity extends AppCompatActivity
                 .setFastestInterval(1000);
         LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
     }
+
     @SuppressLint("MissingPermission")
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         startLocationUpdate();
         location = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
-        if(location==null){
+        if (location == null) {
             startLocationUpdate();
             startLocationUpdate();
-        }
-        else{
+        } else {
             lantitude = location.getLatitude();
             longitude = location.getLongitude();
         }
-        Log.d("Got Location : ",String.valueOf(lantitude)+" : "+String.valueOf(longitude));
+        Log.d("Got Location : ", String.valueOf(lantitude) + " : " + String.valueOf(longitude));
     }
 
     @Override
@@ -253,4 +259,13 @@ public class Main2Activity extends AppCompatActivity
     public void onLocationChanged(Location location) {
 
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        FirebaseAuth.getInstance().signOut();
+        LoginManager.getInstance().logOut();
+    }
+
 }
+
