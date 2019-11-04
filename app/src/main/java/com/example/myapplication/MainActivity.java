@@ -33,6 +33,7 @@ import java.util.regex.Pattern;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -121,7 +122,8 @@ public class MainActivity extends AppCompatActivity {
                                         Log.d("Notify","Log in with email : success");
                                         FirebaseUser user = mAuth.getCurrentUser();
                                         Toast.makeText(MainActivity.this,"Log in successful",Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(MainActivity.this,AddSensor.class));
+                                        Fragment fragment = new addSensorFragment(getApplicationContext());
+                                        //startActivity(new Intent(MainActivity.this,AddSensor.class));
                                     }
                                     else{
                                         Log.d("Notify","Log in with email : failed");
