@@ -133,10 +133,10 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.ranking) {
 
         } else if (id == R.id.login) {
-            startActivity(new Intent(Main2Activity.this, MainActivity.class));
+            Log.d("onNavigationItemSelect","Login");
+            fragment = new loginFragment(this);
         } else if (id == R.id.home) {
-            homepageFunction();
-
+            Log.d("onNavigationItemSelect","homepage");
         }
         if(fragment!=null){
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

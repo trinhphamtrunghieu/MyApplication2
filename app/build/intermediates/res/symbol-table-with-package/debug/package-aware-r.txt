@@ -1270,12 +1270,10 @@ id com_facebook_tooltip_bubble_view_text_body
 id com_facebook_tooltip_bubble_view_top_pointer
 id confirmation_code
 id container
-id container_frame_back
 id content
 id contentPanel
 id content_frame
 id coordinator
-id coordinatorLayout
 id currentLoc
 id currentLocMap
 id custom
@@ -1322,7 +1320,6 @@ id icon_only
 id ifRoom
 id image
 id imageView
-id include
 id info
 id inline
 id invisible
@@ -1410,7 +1407,6 @@ id showCustom
 id showHome
 id showInMap
 id showTitle
-id signUpButton
 id small
 id smallLabel
 id snackbar_action
@@ -1441,7 +1437,6 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
-id textView2
 id textView3
 id textView4
 id textView6
@@ -1522,8 +1517,6 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
-layout activity_add_sensor
-layout activity_login
 layout activity_main2
 layout add_sensor
 layout app_bar_main2
@@ -1534,8 +1527,6 @@ layout com_facebook_device_auth_dialog_fragment
 layout com_facebook_login_fragment
 layout com_facebook_smart_device_dialog_fragment
 layout com_facebook_tooltip_bubble
-layout content_add_sensor
-layout content_login
 layout content_main2
 layout current_location
 layout design_bottom_navigation_item
@@ -1553,6 +1544,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout home_page
+layout login
 layout map
 layout messenger_button_send_blue_large
 layout messenger_button_send_blue_round

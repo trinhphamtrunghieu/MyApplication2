@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -60,6 +62,8 @@ public class currentLocFragment extends Fragment implements GoogleApiClient.Conn
         googleApiClient.connect();
         locationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
         mapFragment = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.currentLocMap);
+        InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(),0);
     }
 
     @SuppressLint("MissingPermission")

@@ -752,10 +752,6 @@
         "source": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_add_sensor.xml.flat",
-        "source": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\src\\main\\res\\layout\\activity_add_sensor.xml"
-    },
-    {
         "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_com_facebook_tooltip_blue_topnub.png.flat",
         "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-facebook-login-4.42.0.aar\\cf58311031a0b23345bc3f1a3ae23345\\res\\drawable-mdpi-v4\\com_facebook_tooltip_blue_topnub.png"
     },
@@ -1034,6 +1030,10 @@
     {
         "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_hide_motion_spec.xml.flat",
         "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.0.0.aar\\34ed84f658b2a754bce1796764945e3d\\res\\animator\\mtrl_fab_hide_motion_spec.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\layout_login.xml.flat",
+        "source": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\src\\main\\res\\layout\\login.xml"
     },
     {
         "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\interpolator_mtrl_linear.xml.flat",
@@ -1632,10 +1632,6 @@
         "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.0.aar\\2e32495da92e7d037cf4fdc09c8f5851\\res\\anim\\abc_slide_out_top.xml"
     },
     {
-        "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
-        "source": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\src\\main\\res\\layout\\activity_login.xml"
-    },
-    {
         "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_icon_background.xml.flat",
         "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\68fb65a21f1edb84a04a60d7de8bdb29\\res\\drawable\\notification_icon_background.xml"
     },
@@ -1716,10 +1712,6 @@
         "source": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_menu_share.png"
     },
     {
-        "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_login.xml.flat",
-        "source": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\src\\main\\res\\layout\\content_login.xml"
-    },
-    {
         "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light_focused.xml.flat",
         "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-17.1.0.aar\\81cb3ad7224a4ca151726aca09249e72\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
     },
@@ -1786,10 +1778,6 @@
     {
         "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_slide_out_bottom.xml.flat",
         "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.0.aar\\2e32495da92e7d037cf4fdc09c8f5851\\res\\anim\\abc_slide_out_bottom.xml"
-    },
-    {
-        "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_add_sensor.xml.flat",
-        "source": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\src\\main\\res\\layout\\content_add_sensor.xml"
     },
     {
         "merged": "C:\\Users\\USER\\Desktop\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_tooltip_black_background.9.png.flat",
