@@ -3,24 +3,13 @@ package com.example.myapplication;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.facebook.login.LoginManager;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -31,11 +20,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.facebook.login.LoginManager;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
     private GoogleMap map;
     private boolean checkPermission = false;
     protected Bundle savedInstanceState;
+    private boolean checkLogin = false;
 
     @SuppressLint("MissingPermission")
     @Override
@@ -43,8 +38,9 @@ public class Main2Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         this.savedInstanceState = savedInstanceState;
         setContentView(R.layout.activity_main2);
+        checkPermission = requestPermission(this,Manifest.permission.ACCESS_FINE_LOCATION);
+        if(checkPermission) setUp();
     }
-
     @SuppressLint("MissingPermission")
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -52,12 +48,14 @@ public class Main2Activity extends AppCompatActivity
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             setUp();
         }
+        else{
+            Toast.makeText(Main2Activity.this,"This permission is required to run the app",Toast.LENGTH_LONG).show();
+        }
     }
 
     private void setUp() {
         Log.d("Calling : ", "On Start");
         setContentView(R.layout.activity_main2);
-        final Intent intent = new Intent(this, Main2Activity.class);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -102,23 +100,6 @@ public class Main2Activity extends AppCompatActivity
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
-    private void homepageFunction() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                SensorInfo sensor;
-                sensor = dataSnapshot.getValue(SensorInfo.class);
-                Log.d("homepage Function", String.valueOf(sensor.getLatitude()) + " : " + String.valueOf(sensor.getLongitude()));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.d("homepage function", "Failed : " + databaseError.toException());
-            }
-        });
-    }
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -133,8 +114,9 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.ranking) {
 
         } else if (id == R.id.login) {
-            Log.d("onNavigationItemSelect","Login");
-            fragment = new loginFragment(this);
+//            Log.d("onNavigationItemSelect","Login");
+//            fragment = new loginFragment(this);
+            fragment = new addSensorFragment(this);
         } else if (id == R.id.home) {
             Log.d("onNavigationItemSelect","homepage");
         }
@@ -158,22 +140,25 @@ public class Main2Activity extends AppCompatActivity
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-        while (!checkPermission) {
-            //checkPermission = requestPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
-            checkPermission = requestPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-            Log.d("Notify", String.valueOf(checkPermission));
-        }
-
-    }
-
-    @Override
     public void onDestroy() {
         super.onDestroy();
         FirebaseAuth.getInstance().signOut();
         LoginManager.getInstance().logOut();
     }
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setUp();
+        if(this.getIntent().getExtras()!=null) {
+            final String checkLogin = this.getIntent().getExtras().getString("checkLogin");
+            if (checkLogin != null && checkLogin.equals("1")) {
+                Log.d("Result from fragment",checkLogin);
+                Fragment fragment = new addSensorFragment(this);
+                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                ft.replace(R.id.content_frame, fragment);
+                ft.commit();
+            }
+        }
+    }
 }
 

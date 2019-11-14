@@ -1334,15 +1334,12 @@ id left
 id light
 id line1
 id line3
-id linearLayout
 id listMode
 id list_item
 id login
 id loginButton
-id loginFacebook
 id longLabel
 id map
-id mapView
 id masked
 id media_actions
 id message
@@ -1409,6 +1406,7 @@ id showCustom
 id showHome
 id showInMap
 id showTitle
+id signUpButton
 id small
 id smallLabel
 id snackbar_action
@@ -1439,6 +1437,7 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView2
 id textView3
 id textView4
 id textView6

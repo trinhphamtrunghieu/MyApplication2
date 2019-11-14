@@ -5,9 +5,12 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.DialogFragment;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -20,10 +23,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 public class map extends DialogFragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
     private GoogleApiClient googleApiClient;
     private LocationRequest locationRequest;
@@ -56,6 +57,7 @@ public class map extends DialogFragment implements GoogleApiClient.ConnectionCal
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState){
+        Log.d("mapOnCreateView","callme");
         View view = inflater.inflate(R.layout.map,container,false);
         googleApiClient = new GoogleApiClient.Builder(mContext)
                 .addConnectionCallbacks(this)
@@ -95,7 +97,7 @@ public class map extends DialogFragment implements GoogleApiClient.ConnectionCal
     }
 
     @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+    public void onConnectionFailed(@NotNull ConnectionResult connectionResult) {
 
     }
 }

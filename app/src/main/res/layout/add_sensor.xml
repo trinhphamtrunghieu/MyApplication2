@@ -44,13 +44,13 @@
         <TextView
             android:id="@+id/longLabel"
             android:layout_width="wrap_content"
-            android:layout_height="19dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="172dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="8dp"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.296"
             app:layout_constraintStart_toStartOf="@+id/addButton"
             app:layout_constraintTop_toBottomOf="@+id/nameLabel"
             tools:text="@tools:sample/us_phones" />
@@ -108,10 +108,5 @@
             app:layout_constraintHorizontal_bias="0.23"
             app:layout_constraintStart_toEndOf="@+id/addButton"
             app:layout_constraintTop_toTopOf="@+id/addButton" />
-        <com.google.android.gms.maps.MapView
-            android:id = "@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </com.google.android.gms.maps.MapView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
