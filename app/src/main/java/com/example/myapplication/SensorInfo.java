@@ -76,14 +76,16 @@ public class SensorInfo {
     }
 
     public boolean valueWithinRange(double minValue,double maxValue){
+        Log.d("valueWithinRange","From "+minValue+" to "+maxValue+" Sensor value : "+this.value);
         if(this.value>=minValue&&this.value<=maxValue) return true;
         else return false;
     }
     public boolean dayWithinRange(Date minDate,Date maxDate){
         Date maxDateDefault = Calendar.getInstance().getTime();
         Date minDateDefault = new Date();
-        Calendar.getInstance().set(1997,1,1);
-        minDateDefault = Calendar.getInstance().getTime();
+        Calendar c = Calendar.getInstance();
+        c.set(1970,1,1);
+        minDateDefault = c.getTime();
         if(minDate==null) minDate = minDateDefault;
         if(maxDate==null) maxDate = maxDateDefault;
         Log.d("dayWithinRange","From "+minDate.toString()+" to "+maxDate.toString());
