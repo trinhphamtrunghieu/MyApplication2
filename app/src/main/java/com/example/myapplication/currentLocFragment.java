@@ -13,6 +13,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -24,10 +28,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 public class currentLocFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks
         , GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -48,7 +48,7 @@ public class currentLocFragment extends Fragment implements GoogleApiClient.Conn
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         getActivity().setTitle("Current Location Menu");
-
+        setRetainInstance(true);
         return inflater.inflate(R.layout.current_location,container,false);
     }
     @Override
@@ -113,6 +113,5 @@ public class currentLocFragment extends Fragment implements GoogleApiClient.Conn
 
     @Override
     public void onLocationChanged(Location location) {
-        Log.d("currentLoc","location changed");
     }
 }

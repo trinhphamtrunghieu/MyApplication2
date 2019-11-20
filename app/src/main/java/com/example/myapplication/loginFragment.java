@@ -9,11 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.facebook.CallbackManager;
 import com.facebook.login.LoginManager;
@@ -29,6 +31,7 @@ import java.util.regex.Pattern;
 public class loginFragment extends Fragment {
     private FirebaseAuth mAuth;
     private Context context;
+    private FrameLayout fl;
     CallbackManager callbackManager = CallbackManager.Factory.create();
     public loginFragment(){}
     public loginFragment(Context context){
@@ -52,6 +55,7 @@ public class loginFragment extends Fragment {
         final Button signup = view.findViewById(R.id.signUpButton);
         final EditText email = view.findViewById(R.id.emailField);
         final EditText pass = view.findViewById(R.id.passField);
+        fl = view.findViewById(R.id.content_login);
         signup.setText("Sign Up");
         signup.setOnClickListener(new View.OnClickListener() {
             boolean check = true;
@@ -63,8 +67,6 @@ public class loginFragment extends Fragment {
                     Toast.makeText(context,"This field is required",Toast.LENGTH_SHORT).show();
                     check = false;
                     email.requestFocus();
-                    signup.setClickable(true);
-                    button.setClickable(true);
 
                 }
                 else check = checkEmail(email.getText().toString());
@@ -72,8 +74,6 @@ public class loginFragment extends Fragment {
                     Toast.makeText(context,"This field is required",Toast.LENGTH_SHORT).show();
                     check = false;
                     pass.requestFocus();
-                    signup.setClickable(true);
-                    button.setClickable(true);
                 }
                 else check=checkPass(pass.getText().toString());
                 if(check){
@@ -94,8 +94,6 @@ public class loginFragment extends Fragment {
                 }
                 else {
                     Toast.makeText(context,"Sign up Failed",Toast.LENGTH_SHORT).show();
-                    signup.setClickable(true);
-                    button.setClickable(true);
                     email.setText("");
                     pass.setText("");
                 }
@@ -105,25 +103,21 @@ public class loginFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 boolean check = true;
-                signup.setClickable(false);
-                button.setClickable(false);
                 if((email.getText().toString().isEmpty())){
                     Toast.makeText(context,"This field is required",Toast.LENGTH_SHORT).show();
                     check = false;
                     email.requestFocus();
-                    signup.setClickable(true);
-                    button.setClickable(true);
                 }
                 else check = checkEmail(email.getText().toString());
                 if (pass.getText().toString().isEmpty()){
                     Toast.makeText(context,"This field is required",Toast.LENGTH_SHORT).show();
                     check = false;
                     pass.requestFocus();
-                    signup.setClickable(true);
-                    button.setClickable(true);
                 }
                 else check=checkPass(pass.getText().toString());
                 if(check){
+                    signup.setClickable(false);
+                    button.setClickable(false);
                     mAuth.signInWithEmailAndPassword(email.getText().toString(),pass.getText().toString())
                             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                                 @Override
@@ -131,25 +125,25 @@ public class loginFragment extends Fragment {
                                     if(task.isSuccessful()){
                                         Log.d("Notify","Log in with email : success");
                                         FirebaseUser user = mAuth.getCurrentUser();
-                                        Toast.makeText(context,"Log in successful",Toast.LENGTH_SHORT).show();
-                                        sendData("1");
+                                        Toast.makeText(context,"Logging in ...",Toast.LENGTH_SHORT).show();
+                                        fl.removeAllViews();
+                                        Fragment fragment = new addSensorFragment(context);
+                                        FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                                        ft.replace(R.id.content_login, fragment).addToBackStack(null);
+                                        ft.commit();
                                     }
                                     else{
                                         Log.d("Notify","Log in with email : failed");
-                                        Toast.makeText(context,"Log in failed",Toast.LENGTH_SHORT).show();
-                                        signup.setClickable(true);
-                                        button.setClickable(true);
+                                        Toast.makeText(context,"Wrong password and email combination",Toast.LENGTH_SHORT).show();
                                         email.setText("");
                                         pass.setText("");
                                     }
                                 }
                             });
                 }
-                else{
-                    signup.setClickable(true);
-                    button.setClickable(true);
+                signup.setClickable(true);
+                button.setClickable(true);
 
-                }
             }
         });
     }

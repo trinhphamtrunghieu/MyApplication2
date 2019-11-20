@@ -30,30 +30,28 @@ public class Main2Activity extends AppCompatActivity
     private GoogleMap map;
     private boolean checkPermission = false;
     protected Bundle savedInstanceState;
-    private boolean checkLogin = false;
-
     @SuppressLint("MissingPermission")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.savedInstanceState = savedInstanceState;
         setContentView(R.layout.activity_main2);
-        checkPermission = requestPermission(this,Manifest.permission.ACCESS_FINE_LOCATION);
-        if(checkPermission) setUp();
+        if(!checkPermission) checkPermission = requestPermission(this,Manifest.permission.ACCESS_FINE_LOCATION);
     }
     @SuppressLint("MissingPermission")
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String[] permissions, int[] grantResults) {
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            setUp();
+            setUp(true);
+            Log.d("Calling from","onRequestPermissionResult : "+permissions[0]+" "+grantResults[0]);
         }
         else{
             Toast.makeText(Main2Activity.this,"This permission is required to run the app",Toast.LENGTH_LONG).show();
         }
     }
 
-    private void setUp() {
+    private void setUp(boolean setFragment) {
         Log.d("Calling : ", "On Start");
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -65,6 +63,13 @@ public class Main2Activity extends AppCompatActivity
         toggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        if(setFragment) {
+            Fragment fragment = null;
+            fragment = new homeFragment(this);
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
+        }
     }
 
     @Override
@@ -110,15 +115,14 @@ public class Main2Activity extends AppCompatActivity
             Log.d("onNavigationItemSelect","Current loc");
             fragment = new currentLocFragment(this);
         } else if (id == R.id.search) {
-
-        } else if (id == R.id.ranking) {
-
+            fragment = new searchSensorFragment(this);
         } else if (id == R.id.login) {
-//            Log.d("onNavigationItemSelect","Login");
-//            fragment = new loginFragment(this);
-            fragment = new addSensorFragment(this);
+            Log.d("onNavigationItemSelect","Login");
+            fragment = new loginFragment(this);
+ //           fragment = new addSensorFragment(this);
         } else if (id == R.id.home) {
             Log.d("onNavigationItemSelect","homepage");
+            fragment = new homeFragment(this);
         }
         if(fragment!=null){
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -148,17 +152,7 @@ public class Main2Activity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        setUp();
-        if(this.getIntent().getExtras()!=null) {
-            final String checkLogin = this.getIntent().getExtras().getString("checkLogin");
-            if (checkLogin != null && checkLogin.equals("1")) {
-                Log.d("Result from fragment",checkLogin);
-                Fragment fragment = new addSensorFragment(this);
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.content_frame, fragment);
-                ft.commit();
-            }
-        }
+        Log.d("OnResume call","start");
     }
 }
 

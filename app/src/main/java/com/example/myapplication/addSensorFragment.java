@@ -37,6 +37,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -133,7 +134,7 @@ public class addSensorFragment extends Fragment implements GoogleApiClient.Conne
 
     private void startLocationUpdate() {
         locationRequest = LocationRequest.create().setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                .setInterval(10000).setFastestInterval(5000);
+                .setInterval(1).setFastestInterval(5);
         LocationServices.FusedLocationApi.requestLocationUpdates(googleApiClient, locationRequest, this);
     }
 
@@ -153,6 +154,10 @@ public class addSensorFragment extends Fragment implements GoogleApiClient.Conne
     }
     private void addToDatabase() {
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
+                .setTimestampsInSnapshotsEnabled(true)
+                .build();
+        db.setFirestoreSettings(settings);
         CollectionReference col = db.collection("sensor");
         Query query = col.whereEqualTo("name",String.valueOf(nameLabel.getText()));
         query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -163,8 +168,10 @@ public class addSensorFragment extends Fragment implements GoogleApiClient.Conne
                         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                         Date date = new Date();
                         String id = db.collection("sensor").document().getId();
-                        SensorInfo sensorInfo = new SensorInfo(String.valueOf(nameLabel.getText()), lantitude, longitude, date.toString(), id);
+                        SensorInfo sensorInfo = new SensorInfo(String.valueOf(nameLabel.getText()), lantitude, longitude, date, id);
+                        sensorInfo.setValue(15);
                         db.collection("sensor").document(id).set(sensorInfo);
+                        Toast.makeText(mContext,"Sensor name \""+nameLabel.getText()+"\" has been added successfully",Toast.LENGTH_LONG).show();
                     }
                     else{
                         Toast.makeText(mContext, "The sensor with this name has been added already. Select a new name", Toast.LENGTH_LONG).show();

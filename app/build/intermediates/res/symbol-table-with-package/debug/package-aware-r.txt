@@ -1100,6 +1100,8 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable border
+drawable calendar
 drawable com_facebook_auth_dialog_background
 drawable com_facebook_auth_dialog_cancel_background
 drawable com_facebook_auth_dialog_header_background
@@ -1167,6 +1169,7 @@ drawable ic_menu_slideshow
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable list
 drawable location
 drawable login
 drawable messenger_bubble_large_blue
@@ -1196,6 +1199,9 @@ drawable notify_panel_notification_icon_bg
 drawable rank
 drawable search
 drawable side_nav_bar
+drawable sort
+drawable sort_asc
+drawable sort_des
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
@@ -1247,6 +1253,8 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id button
 id buttonPanel
+id calendarFrom
+id calendarTo
 id cancel_action
 id cancel_button
 id center
@@ -1273,12 +1281,16 @@ id container
 id content
 id contentPanel
 id content_frame
+id content_login
 id coordinator
 id currentLoc
 id currentLocMap
 id custom
 id customPanel
 id dark
+id dateLabel
+id dayFrom
+id dayTo
 id decor_content_parent
 id default_activity_button
 id design_bottom_sheet
@@ -1293,6 +1305,10 @@ id display_always
 id drawer_layout
 id edit_query
 id emailField
+id enableDayFrom
+id enableDayTo
+id enableName
+id enableValue
 id end
 id end_padder
 id enterAlways
@@ -1300,7 +1316,6 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
-id fab
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1325,6 +1340,7 @@ id info
 id inline
 id invisible
 id italic
+id itemBackground
 id item_touch_helper_previous_elevation
 id labeled
 id large
@@ -1350,6 +1366,8 @@ id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
 id nameLabel
+id nameSensor
+id nameToSearch
 id nav_view
 id navigation_header_container
 id never
@@ -1374,7 +1392,8 @@ id progress_bar
 id progress_circular
 id progress_horizontal
 id radio
-id ranking
+id radioButton4
+id radioDes
 id right
 id right_icon
 id right_side
@@ -1389,6 +1408,7 @@ id scrollIndicatorUp
 id scrollView
 id scrollable
 id search
+id searchButton
 id search_badge
 id search_bar
 id search_button
@@ -1397,6 +1417,7 @@ id search_edit_frame
 id search_go_btn
 id search_mag_icon
 id search_plate
+id search_result_grid
 id search_src_text
 id search_voice_btn
 id select_dialog_listview
@@ -1414,6 +1435,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spinnerOrder
 id split_action_bar
 id spread
 id spread_inside
@@ -1437,11 +1459,17 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView11
+id textView12
+id textView13
 id textView2
 id textView3
 id textView4
+id textView5
 id textView6
+id textView7
 id textView8
+id textView9
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1453,7 +1481,6 @@ id title_template
 id toolbar
 id top
 id topPanel
-id totalSensor
 id touch_outside
 id transition_current_scene
 id transition_layout_save
@@ -1465,6 +1492,9 @@ id unknown
 id unlabeled
 id up
 id useLogo
+id valueFrom
+id valueLabel
+id valueTo
 id view_offset_helper
 id visible
 id wide
@@ -1545,7 +1575,9 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout grid_item_info_bar
 layout home
+layout item
 layout login
 layout map
 layout messenger_button_send_blue_large
@@ -1572,6 +1604,8 @@ layout notification_template_media
 layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
+layout search_result
+layout search_sensor
 layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
@@ -1693,6 +1727,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string project_id
 string search_menu_title
+string sensor_name
 string status_bar_notification_info_overflow
 string title_activity_add_sensor
 string title_activity_main
