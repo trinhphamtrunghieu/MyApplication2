@@ -3,7 +3,6 @@ package com.example.myapplication;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -115,6 +114,7 @@ public class searchSensorFragment extends Fragment {
                 if (isChecked) {
                     Log.d("Button checked listener","name checked");
                     name.setEnabled(true);
+                    name.setText("");
                     findName = true;
                 } else {
                     Log.d("Button checked listener","name unchecked");
@@ -127,9 +127,11 @@ public class searchSensorFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    Log.d("Button checked listener","value checked");
+                    Log.d("Button checked listener" ,"value checked");
                     valMax.setEnabled(true);
                     valMin.setEnabled(true);
+                    valMax.setText("");
+                    valMin.setText("");
                     findValue = true;
                 } else {
                     Log.d("Button checked listener","value unchecked");
@@ -285,13 +287,9 @@ public class searchSensorFragment extends Fragment {
         addToGrid(sensorsResult);
         onShowing = true;
         dialog.show();
+        dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(true);
-        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialog) {
-                onShowing = false;
-            }
-        });
+        dialog.setOnCancelListener(dialog -> onShowing = false);
     }
 
     private void addToGrid(ArrayList<SensorInfo> sensorResult) {

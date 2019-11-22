@@ -16,12 +16,12 @@
         "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.0.aar\\f653cb0d7f8f757424990269d7e782fa\\res\\drawable-xxhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
-        "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.0.aar\\f653cb0d7f8f757424990269d7e782fa\\res\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png"
-    },
-    {
         "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.0.aar\\f653cb0d7f8f757424990269d7e782fa\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.0.aar\\f653cb0d7f8f757424990269d7e782fa\\res\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
         "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -68,12 +68,12 @@
         "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-facebook-share-4.42.0.aar\\899aa7991830894ebb0ebe8544b2a1c0\\res\\drawable-hdpi-v4\\com_facebook_button_send_icon_blue.png"
     },
     {
-        "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
-        "source": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
-    },
-    {
         "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\core-1.0.0.aar\\cb22a07f4167a4f7926a9e74dbf31ea8\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
         "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_list_selector_disabled_holo_light.9.png.flat",
@@ -96,16 +96,16 @@
         "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.0.aar\\f653cb0d7f8f757424990269d7e782fa\\res\\drawable-mdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
-        "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_mode_close_item_material.xml.flat",
-        "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.0.aar\\f653cb0d7f8f757424990269d7e782fa\\res\\layout\\abc_action_mode_close_item_material.xml"
+        "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_tab_icon.xml.flat",
+        "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.0.0.aar\\c457824ac307fb35c2913222094e240c\\res\\layout\\design_layout_tab_icon.xml"
     },
     {
         "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_com_facebook_tooltip_blue_background.9.png.flat",
         "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\jetified-facebook-login-4.42.0.aar\\4c5e8e3cb9d1b26076e0acee614686eb\\res\\drawable-xhdpi-v4\\com_facebook_tooltip_blue_background.9.png"
     },
     {
-        "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_tab_icon.xml.flat",
-        "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\material-1.0.0.aar\\c457824ac307fb35c2913222094e240c\\res\\layout\\design_layout_tab_icon.xml"
+        "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_mode_close_item_material.xml.flat",
+        "source": "C:\\Users\\M4600\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-1.0.0.aar\\f653cb0d7f8f757424990269d7e782fa\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "D:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",

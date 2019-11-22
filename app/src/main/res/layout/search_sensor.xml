@@ -34,18 +34,19 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginStart="36dp"
         android:text="@string/sensor_name"
         android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.298" />
 
     <EditText
         android:id="@+id/nameToSearch"
-        android:layout_width="198dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="28dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Add Sensor name"
@@ -54,9 +55,9 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="88dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="48dp"
+        android:layout_width="91dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="36dp"
         android:text="Value from "
         android:textSize="18sp"
@@ -66,10 +67,10 @@
     <EditText
         android:id="@+id/valueFrom"
         android:layout_width="56dp"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:inputType="numberDecimal"
+        android:text="Min"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView11"
         app:layout_constraintStart_toStartOf="@+id/nameToSearch" />
 
@@ -77,8 +78,8 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
         android:text="to"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/valueFrom"
@@ -87,11 +88,11 @@
     <EditText
         android:id="@+id/valueTo"
         android:layout_width="56dp"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:layout_marginStart="32dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:inputType="numberDecimal"
+        android:text="Max"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toTopOf="@+id/valueFrom" />
 
@@ -99,7 +100,7 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="28dp"
         android:text="Day add from"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/textView9"
@@ -113,16 +114,16 @@
         android:background="@drawable/calendar"
         app:layout_constraintBottom_toBottomOf="@+id/dayFrom"
         app:layout_constraintEnd_toEndOf="@+id/valueTo"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/dayFrom"
         app:layout_constraintTop_toTopOf="@+id/dayFrom"
-        app:layout_constraintVertical_bias="0.555" />
+        app:layout_constraintVertical_bias="0.09" />
 
     <TextView
         android:id="@+id/dayFrom"
-        android:layout_width="146dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="148dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="4dp"
         android:ems="10"
         android:inputType="date"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView12"
@@ -140,13 +141,13 @@
 
     <TextView
         android:id="@+id/dayTo"
-        android:layout_width="145dp"
-        android:layout_height="43dp"
+        android:layout_width="148dp"
+        android:layout_height="35dp"
         android:ems="10"
         android:inputType="date"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="@+id/dayFrom"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/dayFrom" />
 
     <Button
