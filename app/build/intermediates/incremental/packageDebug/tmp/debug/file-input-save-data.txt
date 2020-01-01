@@ -1,15 +1,15 @@
 #Internal package file, do not edit.
-#Fri Nov 22 12:16:37 ICT 2019
+#Fri Nov 22 12:52:18 ICT 2019
 1.base=D\:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-2.path=classes.dex
+2.path=classes2.dex
 0.baseType=DIRECTORY
-2.base=D\:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+2.base=D\:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
 2.set=DEX
 1.baseType=DIRECTORY
 count=3
 1.set=DEX
-0.path=classes2.dex
+0.path=classes.dex
 0.set=DEX
-0.base=D\:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.base=D\:\\Bin\\MyApplication2\\MyApplication2\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
 2.baseType=DIRECTORY
-1.path=classes3.dex
+1.path=classes.dex
