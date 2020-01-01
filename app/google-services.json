@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "476904454201",
+    "firebase_url": "https://test-e8cdb.firebaseio.com",
+    "project_id": "test-e8cdb",
+    "storage_bucket": "test-e8cdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476904454201:android:e0bd3fa956c3c0558135e8",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476904454201-e9mqrupcmvt4sd0tc3p1lkllaad0f6pk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "6d26cebf2eca1f7c3c598e8d9b1b0a5f92e39218"
+          }
+        },
+        {
+          "client_id": "476904454201-kgse7dhfc8sl2afvh2g6o5uaojptpnvj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "3269e0f2b891d7087f9d91bd41f418aec884866b"
+          }
+        },
+        {
+          "client_id": "476904454201-lo1m8bt3hup4jg5ae5ga6j97f318839u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDstlPhpp96LDlH0bkbPvLHJXHxRwfEPXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "476904454201-lo1m8bt3hup4jg5ae5ga6j97f318839u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
