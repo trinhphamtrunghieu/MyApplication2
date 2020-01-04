@@ -4,7 +4,6 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/multidex-instrumentation-2.0.0.aar/885587206eb79ee5734fbd408a661dc4/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/multidex-instrumentation-2.0.0.aar/885587206eb79ee5734fbd408a661dc4/res" />
     </CLASSES>
-    <JAVADOC />
     <SOURCES />
   </library>
 </component>

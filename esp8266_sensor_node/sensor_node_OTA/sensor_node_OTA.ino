@@ -1,3 +1,7 @@
+#include <ArduinoJson.h>
+
+#include <dummy.h>
+
 //---------------------------------
 // sensor_node_OTA
 //---------------------------------
@@ -5,8 +9,6 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266mDNS.h>
 #include <ArduinoOTA.h>
-#include <FirebaseArduino.h>
-#include <FirebaseError.h>
 #include <math.h>
 #include <DHT.h>
 #include <NTPClient.h>
@@ -62,7 +64,6 @@ void setup()
   dht.begin();
   wifiConnectOTA();
   timeClient.begin();
-  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
   delay(100);
 
   //clear array
@@ -190,16 +191,14 @@ void sensorMeanValue(){
     data["Temp"] = t_Average;
     data["Humid"] = h_Average;
 
-    Firebase.set("/node_name/" + dateStamp + "-" + String_actualHour + ":" + String_actualMinute + "/", data);
-    if(Firebase.failed())
-    {
-      Serial.print("Pushing data failed");
-      Serial.println(Firebase.error());
-      Serial.println("Reconnecting to Firebase");
-      Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
-      Serial.println("Re-sending data to Firebase");
-      Firebase.set("/node_name/" + dateStamp + "-" + String_actualHour + ":" + String_actualMinute + "/", data);
-    }
+//    Firebase.set("/node_name/" + dateStamp + "-" + String_actualHour + ":" + String_actualMinute + "/", data);
+//    if(Firebase.failed())
+//    {
+//      Serial.print("Pushing data failed");
+//      Serial.println(Firebase.error());
+//      Serial.println("Reconnecting to Firebase");
+//      Serial.println("Re-sending data to Firebase");
+//    }
 
     Serial.println("");
     Serial.println(String_actualTime);

@@ -1,0 +1,11 @@
+node_name : String
+dateStamp : Date
+actualHour : Number
+actualMin : number
+data : struct {
+	PM_1_0 : int
+	PM_2_5 : int
+	PM_10 : int
+	Temp : float
+	Humid : float
+}
